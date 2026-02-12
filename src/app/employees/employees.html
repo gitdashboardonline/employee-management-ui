@@ -2,7 +2,7 @@
   <h3 class="page-title">Employee Management</h3>
 
   <div class="card p-4 mb-4">
-    <form (ngSubmit)="addEmployee(form)">
+    <form #empForm="ngForm" (ngSubmit)="addEmployee(empForm)">
       <div class="row g-3">
         <div class="col-md-3">
           <input
@@ -11,8 +11,20 @@
             placeholder="Employee ID"
             [(ngModel)]="form.employee_id"
             name="employee_id"
+            #employeeId="ngModel"
             required
+            pattern="^[0-9]+$"
           />
+          @if (employeeId.invalid && employeeId.touched) {
+            <div class="text-danger mt-1">
+              @if (employeeId.errors?.['required']) {
+                <small>Employee ID is required</small>
+              }
+              @if (employeeId.errors?.['pattern']) {
+                <small>Employee ID must contain numbers only</small>
+              }
+            </div>
+          }
         </div>
 
         <div class="col-md-3">
@@ -23,7 +35,13 @@
             [(ngModel)]="form.full_name"
             name="full_name"
             required
+            #fullName="ngModel"
           />
+          @if (fullName.invalid && fullName.touched) {
+            <div class="text-danger mt-1">
+              <small>Full Name is required</small>
+            </div>
+          }
         </div>
 
         <div class="col-md-3">
@@ -33,8 +51,21 @@
             placeholder="Email"
             [(ngModel)]="form.email"
             name="email"
+            #email="ngModel"
             required
+            email
           />
+
+          @if (email.invalid && email.touched) {
+            <div class="text-danger mt-1">
+              @if (email.errors?.['required']) {
+                <small>Email is required</small>
+              }
+              @if (email.errors?.['email']) {
+                <small>Enter a valid email address</small>
+              }
+            </div>
+          }
         </div>
 
         <div class="col-md-2">
@@ -45,20 +76,26 @@
             [(ngModel)]="form.department"
             name="department"
             required
+            #department="ngModel"
           />
+          @if (department.invalid && department.touched) {
+            <div class="text-danger mt-1">
+              <small>Department is required</small>
+            </div>
+          }
         </div>
 
         <div class="col-md-1 d-grid">
-          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="submit" class="btn btn-primary" [disabled]="empForm.invalid">Add</button>
         </div>
       </div>
     </form>
 
-    @if (errorMessage != '') {
+    <!-- @if (errorMessage != '') {
       <div class="alert alert-danger mt-3">
         {{ errorMessage }}
       </div>
-    }
+    } -->
   </div>
 
   <div class="card p-3">
@@ -101,3 +138,55 @@
     <!-- } -->
   </div>
 </div>
+
+
+<div class="container mt-4">
+
+  <h3 class="page-title">Attendance Management</h3>
+
+  <div class="card p-4 mb-4">
+    <form (ngSubmit)="markAttendance()">
+      <div class="row g-3">
+
+        <div class="col-md-4">
+          <select title="32" class="form-select"
+                  [(ngModel)]="attendance.employee_id"
+                  name="employee_id"
+                  required>
+            <option value="">Select Employee</option>
+            <option *ngFor="let emp of employees"
+                    [value]="emp.id">
+              {{ emp.full_name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <input title="da" type="date"
+                 class="form-control"
+                 [(ngModel)]="attendance.attendance_date"
+                 name="attendance_date"
+                 required>
+        </div>
+
+        <div class="col-md-3">
+          <select title="dd" class="form-select"
+                  [(ngModel)]="attendance.status"
+                  name="status"
+                  required>
+            <option value="">Status</option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+          </select>
+        </div>
+
+        <div class="col-md-1 d-grid">
+          <button type="submit" class="btn btn-primary">Mark</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+</div>
+

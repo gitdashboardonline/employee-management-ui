@@ -1,0 +1,98 @@
+/* Page Title */
+.page-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+}
+
+/* Form Inputs */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 0.2rem rgba(63, 81, 181, 0.15);
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #3f51b5;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #303f9f;
+}
+
+.btn-danger {
+  background-color: #e53935;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c62828;
+}
+
+/* Table Styling */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #3f51b5;
+  color: #ffffff;
+}
+
+.table thead th {
+  font-weight: 500;
+  border: none;
+  padding: 14px;
+}
+
+.table tbody td {
+  padding: 12px;
+  vertical-align: middle;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Hover Effect */
+.table-hover tbody tr:hover {
+  background-color: #f5f7ff;
+  transition: background-color 0.2s ease;
+}
+
+/* Alert Styling */
+.alert {
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .btn-sm {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

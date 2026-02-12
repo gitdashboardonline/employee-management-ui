@@ -1,0 +1,65 @@
+/* Page Title */
+.page-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+}
+
+/* Form Select & Input Styling */
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  padding: 10px 12px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+/* Focus Effect */
+.form-control:focus,
+.form-select:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 0.2rem rgba(63, 81, 181, 0.15);
+  outline: none;
+}
+
+/* Button Styling */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #3f51b5;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #303f9f;
+}
+
+/* Row Spacing */
+.row.g-3 > div {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .row.g-3 {
+    row-gap: 15px;
+  }
+
+  .btn {
+    font-size: 13px;
+  }
+}

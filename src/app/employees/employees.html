@@ -1,0 +1,103 @@
+<div class="container mt-4">
+  <h3 class="page-title">Employee Management</h3>
+
+  <div class="card p-4 mb-4">
+    <form (ngSubmit)="addEmployee(form)">
+      <div class="row g-3">
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Employee ID"
+            [(ngModel)]="form.employee_id"
+            name="employee_id"
+            required
+          />
+        </div>
+
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Full Name"
+            [(ngModel)]="form.full_name"
+            name="full_name"
+            required
+          />
+        </div>
+
+        <div class="col-md-3">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            [(ngModel)]="form.email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="col-md-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Department"
+            [(ngModel)]="form.department"
+            name="department"
+            required
+          />
+        </div>
+
+        <div class="col-md-1 d-grid">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </form>
+
+    @if (errorMessage != '') {
+      <div class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+    }
+  </div>
+
+  <div class="card p-3">
+    <!-- @if (employees.length == 0) {
+      <div class="text-center p-4">No employees found.</div>
+    } @else { -->
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th class="text-end">Actions</th>
+          <th>Attendance</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (emp of employees; track emp.id) {
+          <tr>
+            <td>{{ emp.employee_id }}</td>
+            <td>{{ emp.full_name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.department }}</td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-danger" (click)="deleteEmployee(emp.id!)">
+                Delete
+              </button>
+            </td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-primary" (click)="getattandanceById(emp.id!)">
+                View
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    <!-- } -->
+  </div>
+</div>

@@ -24,3 +24,20 @@ body {
 .toast-container {
   z-index: 999999 !important;
 }
+.app-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+
+/* Show spinner cursor when loading */
+.loading-cursor {
+  cursor: progress !important; /* better than wait */
+}
+
+/* Optional: block clicks while loading */
+.loading-overlay {
+  pointer-events: none;
+  opacity: 0.7;
+}

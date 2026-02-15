@@ -1,0 +1,10 @@
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.empty-state mat-icon { 
+  display: block;
+  margin-bottom: 10px;
+}

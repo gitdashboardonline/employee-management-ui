@@ -3,9 +3,11 @@ import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { AttendanceModel } from '../models/attandance.model';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
 @Component({
   selector: 'app-attendance-dialog',
-  imports: [CommonModule, MatDialogModule, MatTableModule],
+  imports: [CommonModule, MatDialogModule, MatTableModule, MatIconModule, MatButton],
   standalone: true,
   templateUrl: './attendance-dialog.html',
   styleUrl: './attendance-dialog.css',

@@ -1,0 +1,12 @@
+.app-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  padding: 15px;
+}
+
+mat-icon {
+  color: #1976d2;
+  font-size: 28px;
+  margin-right: 8px;
+}
